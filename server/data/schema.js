@@ -32,8 +32,8 @@ type Mutation {
 
 type Entity {
   _id: ID!
-  createdDate: String!
-  updatedDate: String!
+  created_date: String!
+  updated_date: String!
 }
 
 type User inherits Entity {

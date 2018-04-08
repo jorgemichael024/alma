@@ -1,5 +1,5 @@
 import { UserModel, LeaveModel } from '../models';
-
+import  bcrypt from 'bcrypt';
 
 const resolvers = {
     Query: {
@@ -29,18 +29,21 @@ const resolvers = {
       }
     },
     Mutation: {
-        createUser: (root, args) => {
-            const newUser = new UserModel(args);
+        // createUser: (root, { firstName, lastName, email, username, password, roles }) => {
+        //     return bcrypt.hash(password, 10)
+        //     .then(hash => {
+        //         const newUser = new UserModel({ firstName, lastName, email, username, password: hash, roles });
 
-            return newUser.save()
-            .then (user => {
-                console.log("User Response", user);
-                return user;
-            })
-            .catch (err => {
-                console.error('createUser error: ', err);
-            });
-        },
+        //         return newUser.save();
+        //     })
+        //     .then (user => {
+        //         console.log("User Response", user);
+        //         return user;
+        //     })
+        //     .catch (err => {
+        //         console.error('createUser error: ', err);
+        //     });
+        // },
         createLeave: (root, { fromDate, toDate, reason, type, user_id }) => {
             return UserModel.findOne({ _id: user_id })
             .then (user => {

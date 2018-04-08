@@ -27,7 +27,7 @@ const userSchema = new Schema({
     },
     roles: [String],
     avatar: String
-})
+}, { timestamps: true });
 
 const UserModel = mongoose.model('User', userSchema);
 

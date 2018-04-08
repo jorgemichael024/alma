@@ -24,7 +24,10 @@ const UserList = ({selectUser, currentUser}) => (
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
+      if (error) {
+        console.log("ERROR", error.graphQLErrors);
+        return <p>Error :(</p>;
+      }
 
       console.log("DATA", data);
 
@@ -49,7 +52,10 @@ const LeavesList = ({currentUser}) => (
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
+      if (error) {
+        console.log(error);
+        return <p>Error :(</p>;
+      }
 
       console.log("DATA", data);
 
@@ -76,7 +82,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Employee Management App</h1>
+          <h1 className="App-title">Absence and Leave Management App</h1>
         </header>
         <div className="UserList">
           <UserList selectUser={this.selectUser} />

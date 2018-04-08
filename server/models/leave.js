@@ -22,7 +22,7 @@ const leaveSchema = new Schema({
         required: true
     },
     user_id: Schema.Types.ObjectId
-})
+}, { timestamps: true });
 
 const LeaveModel = mongoose.model('Leave', leaveSchema);
 

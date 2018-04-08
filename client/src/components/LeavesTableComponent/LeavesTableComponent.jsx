@@ -46,7 +46,7 @@ const LeavesTableComponent = ({ user, leaves }) => {
                 <Table.Body>
                     { 
                         leaves.map(leave => (
-                            <Table.Row>
+                            <Table.Row key={leave._id}>
                                 <Table.Cell>{ leave.fromDate }</Table.Cell>
                                 <Table.Cell>{ leave.toDate }</Table.Cell>
                                 <Table.Cell>{ leave.reason }</Table.Cell>
